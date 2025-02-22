@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 2 - Colorize Text</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #218838;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .problem-box {
+            width: 60%;
+            text-align: center;
+        }
+
+        .problem-box p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin: 0 10px;
+        }
+
+        #colorize {
+            background: red;
+            color: white;
+        }
+
+        #colorize:hover {
+            background: darkred;
+        }
+
+        #decolorize {
+            background: gray;
+            color: white;
+        }
+
+        #decolorize:hover {
+            background: black;
+        }
+
+        .logic-box {
+            width: 60%;
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.5;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .logic-box:hover {
+            transform: scale(1.05);
+        }
+
+        .logic-point{
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        .logic-box h2 {
+            color:yellow;
+            font-size:32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="Logichook-logo.svg" alt="Logichook Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Homework 1</a>
+            <a href="homework3.html">Homework 3</a>
+            <a href="homework4.html">Homework 4</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Problem Section -->
+        <div class="problem-box">
+            <h1>🎨 Colorize Paragraphs</h1>
+            <p>lorem</p>
+            <p>lorem</p>
+            <p>lorem</p>
+            <p>lorem</p>
+            <p>lorem</p>
+            <p>lorem</p>
+            <div class="btn-group">
+                <button id="colorize">Colorize</button>
+                <button id="decolorize">Decolorize</button>
+            </div>
+        </div>
+
+        <!-- Logic Explanation Box -->
+        <div class="logic-box">
+            <h2> 🧠 Logic </h2>
+            <div class="logic-point">📌 Select all paragraph tags inside problem-box using <b>document.querySelectorAll(".problem-box p")</b>.</div>
+            <div class="logic-point">📌 When the <b>Colorize button</b>  is clicked, loop through each paragraph and change its color to red.</div>
+            <div class="logic-point">📌 When the <b> Decolorize button </b> is clicked, loop through each paragraph and change its color back to black.</div>
+            <div class="logic-point">📌 Both buttons use <b>addEventListener</b> to detect clicks and execute the respective functions.</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("colorize").addEventListener("click", function () {
+            document.querySelectorAll("p").forEach((p) => {
+                p.style.color = "red";
+            });
+        });
+
+        document.getElementById("decolorize").addEventListener("click", function () {
+            document.querySelectorAll("p").forEach((p) => {
+                p.style.color = "black";
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 4 - Mouse Events </title>
+  <style>
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #218838;
+        }
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .problem-box {
+      width: 60%;
+      text-align: center;
+    }
+
+    .logic-box {
+      width: 45%;
+      background: #343a40;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.5;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .logic-box h2 {
+      color: yellow;
+      font-size: 32px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .logic-box p {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: white;
+    }
+    
+    .logic-box:hover {
+            transform: scale(1.05);
+        }
+
+    .cell {
+      width: 350px;
+      height: 250px;
+      border: 2px solid black;
+      margin-top: 20px;
+      margin-left: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: 0.3s;
+      font-size: 22px;
+    }
+
+    .cell:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="Logichook-logo.svg" alt="Logichook Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Homework 1</a>
+            <a href="homework2.html">Homework 2</a>
+            <a href="homework3.html">Homework 3</a>
+        </div>
+    </nav>
+  <div class="container">
+    <!-- Problem Section -->
+    <div class="problem-box">
+      <h1>🖱️ Mouse Hover Effect</h1><br>
+      <p>Hover over the box below to change its background color.</p>
+      <div class="cell" id="hoverBox">Hover Me</div>
+    </div>
+
+    <!-- Logic Explanation Box -->
+    <div class="logic-box">
+      <h2>🧠 Logic</h2>
+      <p>📌 When the mouse enters the cell, we change its background to yellowgreen.</p>
+      <p>📌 When the mouse leaves, we remove the background color.</p>
+      <p>📌 We use <b><code>mouseover</code></b>  to detect when the mouse enters.</p>
+      <p>📌 We use <b><code>mouseleave</code></b> to detect when the mouse exits.</p>
+    </div>
+  </div>
+
+  <script>
+    let box = document.getElementById("hoverBox");
+    box.addEventListener("mouseover", () => box.style.background = "yellowgreen");
+    box.addEventListener("mouseleave", () => box.style.background = "");
+  </script>
+
+</body>
+</html>

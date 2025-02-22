@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 3 - Remove and Delete All</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #218838;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .problem-box {
+            width: 60%;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            padding: 8px 15px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin: 10px 5px;
+        }
+        #all {
+            background: red;
+            color: white;
+        }
+        #all:hover {
+            background: darkred;
+        }
+        .delete-btn {
+            background: gray;
+            color: white;
+        }
+        .delete-btn:hover {
+            background: black;
+        }
+        .logic-box {
+            width: 45%;
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1rem;
+            line-height: 1.5;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+
+            p{
+                margin-bottom: 15px;
+            }
+        }
+        .logic-box:hover {
+            transform: scale(1.05);
+        }
+        
+        .logic-box h2 {
+            color: yellow;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <nav>
+        <div class="nav-left">
+            <img src="Logichook-logo.svg" alt="Logichook Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Homework 1</a>
+            <a href="homework2.html">Homework 2</a>
+            <a href="homework4.html">Homework 4</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="problem-box">
+            <h1>🗑️ Remove Tasks</h1>
+            <button id="all">Remove All</button>
+            <ul>
+                <li><p>Task - 1</p><button class="delete-btn">Delete</button></li>
+                <li><p>Task - 2</p><button class="delete-btn">Delete</button></li>
+                <li><p>Task - 3</p><button class="delete-btn">Delete</button></li>
+                <li><p>Task - 4</p><button class="delete-btn">Delete</button></li>
+            </ul>
+        </div>
+
+        <div class="logic-box">
+            <h2>🧠 Logic</h2>
+            <p>📌 Clicking Remove All clears the entire list by setting  <b><code>ul.innerHTML = ""</code></b>.</p>
+            <p>📌 Clicking Delete removes only that specific task.</p>
+            <p>📌 The script listens for clicks on the <b><code>ul</code></b>  and checks if a button was clicked.</p>
+            <p>📌 If clicked, <b><code>e.target.parentElement.remove()</code> </b>removes the <b><code>li</code></b>  (task) containing the button.</p>
+          </div>          
+    </div>
+
+    <script>
+        document.getElementById("all").onclick = () => document.querySelector("ul").innerHTML = "";
+        document.querySelector("ul").onclick = (e) => e.target.classList.contains("delete-btn") && e.target.parentElement.remove();
+    </script>
+
+</body>
+</html>

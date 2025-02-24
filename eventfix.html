@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Fix</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            flex-direction: column;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px; 
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #218838;
+        }
+
+        .wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 80px;
+        }
+        
+        .red {
+            padding: 2rem;
+            height: 20rem;
+            width: 20rem;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .yellow {
+            height: 10rem;
+            width: 10rem;
+            background-color: yellow;
+        }
+
+        .logic-box {
+            width: 35%;
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.5;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .logic-box:hover {
+            transform: scale(1.05);
+        }
+
+        .logic-box h2 {
+            color:yellow;
+            font-size:32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .logic-box p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="Logichook-logo.svg" alt="Logichook Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="counter.html">Homework 1</a>
+            <a href="eventdelegation.html">Homework 3</a>
+            <a href="recursivediv.html">Homework 4</a>
+        </div>
+    </nav>
+    <h2>Problem Statement: Fix event propagation issue</h2>
+    <div class="wrapper">
+        <div class="red">
+            <div class="yellow"></div>
+        </div>
+        <div class="logic-box">
+            <h2>🧠 Logic</h2>
+            <p>📌 Clicking <b>red</b> shows "Red was clicked".</p>
+            <p>📌 Clicking <b>yellow</b> should only show "Yellow was clicked".</p>
+            <p>📌 We use <b>event.stopPropagation()</b> to prevent yellow's click from triggering red's click event.</p>
+        </div>
+    </div>
+    <script>
+        let red = document.querySelector(".red");
+        let yellow = document.querySelector(".yellow");
+
+        red.addEventListener("click", function () {
+            alert("Red was clicked");
+        });
+
+        yellow.addEventListener("click", function (event) {
+            alert("Yellow was clicked");
+            event.stopPropagation();
+        });
+    </script>
+</body>
+</html>

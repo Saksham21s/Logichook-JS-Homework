@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Div</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+
+        nav {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px; 
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #218838;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-inline: auto;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-top: 10%;
+            gap: 60px;
+            width: 80%;
+        }
+        
+        .nested-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nested-container div {
+            padding: 30px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .logic-box {
+            width: 35%;
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.5;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .logic-box:hover {
+            transform: scale(1.05);
+        }
+
+        .logic-box h2 {
+            color:yellow;
+            font-size:32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .logic-box p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-wrapper {
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn1 { 
+            background-color: #6ec6ff; 
+            color: white; 
+        }
+        .btn1:hover {
+            background-color: #4fa3df;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="Logichook-logo.svg" alt="Logichook Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="counter.html">Homework 1</a>
+            <a href="eventfix.html">Homework 2</a>
+            <a href="eventdelegation.html">Homework 3</a>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <div id="nested-div" class="nested-container" style="border: 2px solid red">
+            <div style="border: 2px solid black">
+                <div style="border: 2px solid green">
+                    <div style="border: 2px solid blue"></div>
+                </div>
+            </div>
+        </div>
+        <div class="logic-box">
+            <h2>🧠 Logic</h2>
+            <p>📌 Start from the outermost div and keep selecting its first child.</p>
+            <p>📌 Continue until you reach a div with no children.</p>
+            <p>📌 Once found, remove that div from the DOM.</p>
+        </div>
+    </div>
+    <div class="btn-wrapper">
+        <button class="btn btn1" onclick="deleteLowestDiv()">Delete Lowest Div</button>
+    </div>
+   
+    <script>
+        function deleteLowestDiv() {
+            let div = document.querySelector("#nested-div");
+            while (div.children.length) {
+                div = div.children[0];
+            }
+            div.remove();
+        }
+    </script>
+</body>
+</html>
